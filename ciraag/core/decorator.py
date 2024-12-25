@@ -7,3 +7,9 @@ class Ciraag:
         async def wrapper(event):
             await function(event)
         return events.register(events.NewMessage(outgoing=True, pattern=self.pattern))(wrapper)
+
+class Genie:
+    def __call__(self, function):
+        async def wrapper(event):
+            await function(event)
+        return events.register(events.NewMessage)(wrapper)
