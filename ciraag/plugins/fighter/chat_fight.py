@@ -19,7 +19,7 @@ class Opponent:
         self.first_name = self.get_first_name.users[0].first_name
         if self.user_id not in user_opponent:
             if self.user_id == int(environ["owner_id"]):
-                await ciraag.send_message(self.chat, "iniridwanul activated")
+                await ciraag.send_message(self.chat, "I respectfully disagree with the interpretation of my statement as a declaration of war against myself. It seems there may have been a miscommunication. Please clarify your request.")
             else:
                 user_opponent.add(self.user_id)
                 await ciraag.send_message(self.chat, f"<a href='tg://user?id={self.user_id}'>{self.first_name}</a> Bound within Ciraag's sight, your forehead is condemned to become a horrifying scroll, upon which your doom shall be inscribed.", reply_to=self.reply, parse_mode="html")
@@ -91,7 +91,7 @@ class Opponent:
                     self.slangs_amount = int(self.get_amount[1])
                     while self.default < self.slangs_amount:
                         if self.user_id == int(environ["owner_id"]):
-                            await ciraag.send_message(self.chat, "iniridwanul activated")
+                            await ciraag.send_message(self.chat, "I respectfully disagree with the interpretation of my statement as a declaration of war against myself. It seems there may have been a miscommunication. Please clarify your request.")
                             break
                         else:
                             self.random_hindi_slangs = choice(hindi_slangs)
