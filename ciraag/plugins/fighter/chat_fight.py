@@ -88,8 +88,12 @@ class Opponent:
                 try:
                     self.slangs_amount = int(self.get_amount[1])
                     while self.default < self.slangs_amount:
-                        self.random_hindi_slangs = choice(hindi_slangs)
-                        await ciraag.send_message(self.chat, f"<a href='tg://user?id={self.user_id}'>{self.first_name}</a> {self.random_hindi_slangs}", reply_to=self.reply, parse_mode="html")
+                        if self.user_id == int(environ["owner_id"]):
+                            await ciraag.send_message(self.chat, "iniridwanul activated")
+                            break
+                        else:
+                            self.random_hindi_slangs = choice(hindi_slangs)
+                            await ciraag.send_message(self.chat, f"<a href='tg://user?id={self.user_id}'>{self.first_name}</a> {self.random_hindi_slangs}", reply_to=self.reply, parse_mode="html")
                         self.default += 1
                 except ValueError:
                     await ciraag.send_message(self.chat, "The correct format of Slang Bomb is not used.")
