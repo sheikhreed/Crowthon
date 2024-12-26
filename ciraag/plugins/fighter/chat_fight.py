@@ -39,7 +39,7 @@ class Opponent:
 
     async def fighter_genie(self, event):
         if event.is_private:
-            self.user_id = event.original_update.user_id
+            self.user_id = event.peer_id.user_id
             await ciraag(SetTypingRequest(self.user_id, SendMessageTypingAction()))
             self.sender = await event.get_sender()
             self.sender_id = self.sender.id
