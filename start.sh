@@ -10,8 +10,12 @@ export_variables(){
 }
 
 start_ciraag(){
-    if [ -d "venv" ]; then
-        source venv/bin/activate
+    if [ -d "venv" ] || [ -d ".venv" ]; then
+        if [ -d "venv" ]; then
+            source venv/bin/activate
+        elif [ -d ".venv" ]; then
+            source .venv/bin/activate
+        fi
         echo -e "The virtual environment has been successfully activated"
         if [ -f ".env" ]; then
             export_variables
