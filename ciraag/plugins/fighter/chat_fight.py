@@ -1,5 +1,4 @@
 from ciraag.core.module_injector import *
-from ciraag.core.custom_handler import handler
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.functions.messages import SetTypingRequest
 from telethon.types import SendMessageTypingAction
@@ -19,8 +18,11 @@ class Opponent:
         self.get_first_name = await ciraag(GetFullUserRequest(self.user_id))
         self.first_name = self.get_first_name.users[0].first_name
         if self.user_id not in user_opponent:
-            user_opponent.add(self.user_id)
-            await ciraag.send_message(self.chat, f"<a href='tg://user?id={self.user_id}'>{self.first_name}</a> Bound within Ciraag's sight, your forehead is condemned to become a horrifying scroll, upon which your doom shall be inscribed.", reply_to=self.reply, parse_mode="html")
+            if self.user_id == int(environ["owner_id"]):
+                await ciraag.send_message(self.chat, "iniridwanul activated")
+            else:
+                user_opponent.add(self.user_id)
+                await ciraag.send_message(self.chat, f"<a href='tg://user?id={self.user_id}'>{self.first_name}</a> Bound within Ciraag's sight, your forehead is condemned to become a horrifying scroll, upon which your doom shall be inscribed.", reply_to=self.reply, parse_mode="html")
         else:
             await ciraag.send_message(self.chat, f"<a href='tg://user?id={self.user_id}'>{self.first_name}</a> This opponent has already been sent deep into the hellish prison of Ciraag.", reply_to=self.reply, parse_mode="html")
 
