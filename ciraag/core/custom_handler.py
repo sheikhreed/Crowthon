@@ -1,3 +1,6 @@
 from os import environ
 
-handler = environ["command_handler"]
+try:
+    handler = environ["command_handler"]
+except KeyError:
+    handler = "."
