@@ -13,7 +13,8 @@ class CiraagPlugins:
         self.fighter_plugins = [
             "find_opponent",
             "remove_opponent",
-            "chat_fighting"
+            "chat_fighting",
+            "slangs_bomb"
         ]
 
 default_ciraag_plugins = CiraagPlugins().default_plugins

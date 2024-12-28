@@ -35,6 +35,8 @@ async def query_response(event):
                         await event.edit(usages.self_destruct_usage, buttons=self.back_misc_menu, parse_mode="markdown")
                     elif self.button_data == b'raid':
                         await event.edit(usages.raid_usage, buttons=self.back_misc_menu, parse_mode="markdown")
+                    elif self.button_data == b'spam':
+                        await event.edit(usages.spam_usage, buttons=self.back_misc_menu, parse_mode="markdown")
                 else:
                     await event.answer("You don't have permission to access it; you need to deploy your own Ciraag.", alert=True)
             except:
