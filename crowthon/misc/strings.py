@@ -44,3 +44,13 @@ def afk_text(first_name):
 
     # Return the generated message
     return notification
+
+# Define a function to return the account menu text
+def account_menu_text():
+    # Construct the text that will be shown in the account section
+    account_text = (
+        f"Crowthon\nVersion: {__version__}\nCategory: Account\n\n"
+        "The usage of all features in the Account category is documented here."
+    )
+    # Return the constructed text
+    return account_text

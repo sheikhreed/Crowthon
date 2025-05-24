@@ -8,7 +8,7 @@ from os import environ
 from telethon import events
 
 # Import various menu layouts and utility functions from the misc module
-from misc import categories_menu, system_menu, system_menu_text, return_to_the_system_menu
+from misc import categories_menu, system_menu, system_menu_text, return_to_the_system_menu, account_menu, account_menu_text, return_to_the_account_menu
 
 # Import the current version of Crowthon from the __version__ module
 from __version__ import __version__
@@ -33,7 +33,22 @@ async def query_response(event):
         if user_id == owner:
             # If the "Account" button was pressed
             if button_data == b'account':
-                await event.answer("This feature is not fully implemented yet. Please wait for a future update.", alert=True)
+                menu_info = account_menu_text()
+                await event.edit(menu_info, buttons=account_menu)
+            
+            # If the "AFK" button was pressed
+            elif button_data == b'afk':
+                current_dir = dirname(__file__)
+                afk_md_path = join(current_dir, '..', 'docs', 'afk.md')
+                afk_md_path = abspath(afk_md_path)
+                with open(afk_md_path, 'r') as file:
+                    usage = file.read()
+                await event.edit(usage, buttons=return_to_the_account_menu, parse_mode="markdown")
+            
+            # If the "Back(Account)" button was pressed
+            elif button_data == b'back_to_the_account':
+                menu_info = account_menu_text()
+                await event.edit(menu_info, buttons=account_menu)
             
             # If the "Group" button was pressed
             elif button_data == b'group':

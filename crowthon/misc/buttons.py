@@ -12,10 +12,20 @@ categories_menu = [
     ]
 ]
 
-# Define a two-dimensional list (keyboard layout) for inline button
+# Define the main account menu with inline buttons
 account_menu = [
     [
         Button.inline("AFK", b'afk')
+    ],
+    [
+        Button.inline("Main Menu", b'main_menu')
+    ]
+]
+
+# Define a return button layout to go back to the account menu
+return_to_the_account_menu = [
+    [
+        Button.inline("Back", b'back_to_the_account')
     ]
 ]
 
