@@ -32,3 +32,15 @@ def system_menu_text():
 
     # Return the generated help text
     return system_text
+
+# Define a function that generates an AFK notification message with the user's first name
+def afk_text(first_name):
+    # Create a personalized AFK message using the provided first name
+    notification = (
+        f"Hey {first_name},\n"
+        "I'm currently AFK and might not respond right away. "
+        "I'll get back to you as soon as I'm available."
+    )
+
+    # Return the generated message
+    return notification
