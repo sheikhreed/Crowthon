@@ -22,5 +22,30 @@ class Userbot:
             return wrapper
         return decorator
 
+# Define a class called Watcher to act as a decorator wrapper
+class Watcher:
+    # Constructor method to initialize the class with a Telethon client
+    def __init__(self, client):
+        self.client = client
+
+    # Make the class instance callable like a decorator
+    def __call__(self):
+        # Inner decorator function that takes the target function
+        def decorator(func):
+            # Register the function as a handler for all new incoming messages
+            @self.client.on(events.NewMessage())
+            async def wrapper(event):
+                # Call the original function with the event object
+                await func(event)
+            
+            # Return the wrapped handler function
+            return wrapper
+        
+        # Return the decorator itself
+        return decorator
+
 # Create an instance of Userbot using the crowthon (user account) client
 Crowthon = Userbot(crowthon)
+
+# Create an instance of the Watcher decorator for all incoming messages
+Croweye = Watcher(crowthon)
