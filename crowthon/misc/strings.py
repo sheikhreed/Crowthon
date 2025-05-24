@@ -52,5 +52,6 @@ def account_menu_text():
         f"Crowthon\nVersion: {__version__}\nCategory: Account\n\n"
         "The usage of all features in the Account category is documented here."
     )
+
     # Return the constructed text
     return account_text
