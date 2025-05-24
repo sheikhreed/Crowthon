@@ -12,6 +12,13 @@ categories_menu = [
     ]
 ]
 
+# Define a two-dimensional list (keyboard layout) for inline button
+account_menu = [
+    [
+        Button.inline("AFK", b'afk')
+    ]
+]
+
 # Define the system menu with inline buttons for system-related commands
 system_menu = [
     [   
