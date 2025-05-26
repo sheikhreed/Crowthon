@@ -1,6 +1,6 @@
 :root {
   --bg: #343434;
-  --color: #BBDEFB;
+  --color: #C0C0C0;
 }
 
 * {
@@ -220,6 +220,7 @@ main {
   padding: 0.2rem 0.5rem;
   border-radius: 5px;
   margin-bottom: 0.5rem;
+  color: #BBDEFB;
 }
 
 .social-links {
@@ -300,4 +301,59 @@ main {
     margin-left: 200px;
     padding: 1rem;
   }
+}
+
+.code_container {
+  max-width: 800px;
+  margin: auto;
+}
+
+pre {
+  background: #282a36;
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 8px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #999;
+}
+
+.token.punctuation {
+  color: #ccc;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+  color: #f92672;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string {
+  color: #3fb950;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.token.variable {
+  color: #66d9ef;
+}
+
+.token.keyword {
+  color: #ff6188;
+}
+
+.token.function {
+  color: #fd971f;
 }

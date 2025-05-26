@@ -28,3 +28,16 @@ window.addEventListener("resize", () => {
     document.getElementById("sidebar").classList.add("hidden");
   }
 });
+
+document.querySelectorAll("code").forEach((block) => {
+  const lang = block.className.split("-")[1];
+  const code = block.textContent;
+
+  const highlighted = code
+    .replace(/"(.*?)"/g, '<span class="token string">"$1"</span>')
+    .replace(/\b(def|print|function|const|let|var|echo|return)\b/g, '<span class="token keyword">$1</span>') // Keywords
+    .replace(/(#.*)/g, '<span class="token comment">$1</span>')
+    .replace(/\b\d+\b/g, '<span class="token number">$&</span>');
+
+  block.innerHTML = highlighted;
+});
