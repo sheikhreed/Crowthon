@@ -61,8 +61,10 @@ header {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    z-index: 999;
     transition: all 0.3s ease-in-out;
+    max-height: 81%;
+    margin-top: 13px;
+    margin-left: 5px;
 }
 
 #sidebar.hidden {
