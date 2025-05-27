@@ -29,6 +29,12 @@ window.addEventListener("resize", () => {
   }
 });
 
+window.addEventListener("scroll", () => {
+  if (window.innerWidth < 768) {
+    document.getElementById("sidebar").classList.add("hidden");
+  }
+});
+
 document.querySelectorAll("code").forEach((block) => {
   const lang = block.className.split("-")[1];
   const code = block.textContent;
