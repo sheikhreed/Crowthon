@@ -35,8 +35,9 @@ header {
   z-index: 1000;
 }
 
-#header-click {
+#title {
   text-decoration: none;
+  color: #BBDEFB;
 }
 
 #menu-toggle {
