@@ -35,6 +35,19 @@ window.addEventListener("scroll", () => {
   }
 });
 
+document.addEventListener("click", (e) => {
+  const sidebar = document.getElementById("sidebar");
+  const toggle = document.getElementById("menu-toggle");
+  if (
+    window.innerWidth < 768 &&
+    !sidebar.classList.contains("hidden") &&
+    !sidebar.contains(e.target) &&
+    e.target !== toggle
+  ) {
+    sidebar.classList.add("hidden");
+  }
+});
+
 document.querySelectorAll("code").forEach((block) => {
   const lang = block.className.split("-")[1];
   const code = block.textContent;
