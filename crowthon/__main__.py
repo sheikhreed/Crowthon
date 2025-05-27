@@ -10,6 +10,21 @@ from asyncio import sleep, run
 # Import signal handling for graceful shutdown
 from signal import signal, SIGINT
 
+# Import functions to handle file paths
+from os.path import abspath, join, dirname
+
+# Import the sys module to modify the Python module search path
+import sys
+
+# For easy and cross-platform path handling
+from pathlib import Path
+
+# Get the absolute path of the project root directory
+base_dir = abspath(join(dirname(__file__), ".."))
+
+# Add the project root to the beginning of sys.path to enable module imports
+sys.path.insert(0, base_dir)
+
 # Define a function to handle termination signals (e.g., Ctrl+C)
 def signal_handler(sig, frame):
     print("\nReceived signal:", sig)
@@ -24,9 +39,9 @@ signal(SIGINT, signal_handler)
 # Define the main asynchronous function that runs the userbot and bot
 async def main():
     # Dynamically load all plugin files from the plugins directory
-    for plugin in glob("crowthon/plugins/*.py"):
-        plugin_name = plugin.replace(".py", "").replace("crowthon/plugins/", "")
-        module = __import__(f"plugins.{plugin_name}", fromlist=[plugin_name])
+    for plugin_path in glob("crowthon/plugins/*.py"):
+        plugin_name = Path(plugin_path).stem
+        module = __import__(f"crowthon.plugins.{plugin_name}", fromlist=[plugin_name])
 
         # If the plugin has a load_plugin coroutine, load it
         if hasattr(module, "load_plugin"):
