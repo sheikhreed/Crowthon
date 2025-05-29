@@ -5,6 +5,7 @@ description = "A powerful pluggable userbot on Telegram"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "flask>=3.1.1",
     "pymongo>=4.13.0",
     "python-dotenv>=1.1.0",
     "telethon>=1.40.0",
