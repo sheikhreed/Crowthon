@@ -19,6 +19,9 @@ import sys
 # For easy and cross-platform path handling
 from pathlib import Path
 
+# Import environment variable
+from os import environ
+
 # Get the absolute path of the project root directory
 base_dir = abspath(join(dirname(__file__), ".."))
 
@@ -55,6 +58,13 @@ async def main():
         # Start the bot client with the provided token
         await crowthon_bot.start(bot_token=token)
         print("Assistant Bot started successfully\n\n")
+
+        # Check if the environment variable 'render' is set to 'true'
+        # This indicates that the project is running on the Render platform
+        if environ.get("render") == "true":
+            # Import and run the dummy web server to keep the service alive on Render
+            from server import keep_alive
+            keep_alive()
 
         # Keep the program running indefinitely
         await sleep(float("inf"))
