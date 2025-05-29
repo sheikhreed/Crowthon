@@ -1,0 +1,29 @@
+services:
+  - type: web
+    plan: free
+    name: crowthon
+    runtime: python
+    repo: https://github.com/sheikhreed/Crowthon
+    branch: master
+    buildCommand: |
+      pip install uv
+    startCommand: uv run crowthon
+    envVars:
+      - key: api_id
+        generateValue: true
+      - key: api_hash
+        generateValue: true
+      - key: string_session
+        generateValue: true
+      - key: bot_token
+        generateValue: true
+      - key: assistant_bot
+        generateValue: true
+      - key: handler
+        generateValue: true
+      - key: owner
+        generateValue: true
+      - key: connection_string
+        generateValue: true
+      - key: render
+        value: true
